@@ -1,0 +1,11 @@
+--- libopensmssa-0.0.8/Makefile.am.orig	2015-01-16 17:39:28.000000000 +0100
++++ libopensmssa-0.0.8/Makefile.am	2015-02-24 21:30:00.035705736 +0100
+@@ -26,7 +26,7 @@
+ src_libopensmssa_la_LDFLAGS = -version-info 1 -export-dynamic \
+ 		$(libopensmssa_version_script)
+ src_libopensmssa_la_DEPENDENCIES = $(srcdir)/libopensmssa.map
+-src_libopensmssa_la_LIBADD = -lrdmacm -lpthread -L$(libdir) -losmcomp \
++src_libopensmssa_la_LIBADD = -lrdmacm -lpthread -L$(libdir) -lopensm -losmcomp \
+ 		$(GLIB_LIBS)
+ 
+ # headers are distributed as part of the include dir
