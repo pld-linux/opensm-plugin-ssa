@@ -1,12 +1,12 @@
 Summary:	SSA plugin library (libopensmssa) for OpenSM
 Summary(pl.UTF-8):	Biblioteka wtyczki SSA (libopensmssa) dla OpenSM
 Name:		opensm-plugin-ssa
-Version:	0.0.8
+Version:	0.0.9
 Release:	1
 License:	BSD or GPL v2
 Group:		Libraries
 Source0:	https://www.openfabrics.org/downloads/management/ssa/libopensmssa-%{version}.tar.gz
-# Source0-md5:	7c143fb45fa8476e99f7a385c3e62da6
+# Source0-md5:	316dd88c1330e9131d031b2e1f80b40e
 Patch0:		libopensmssa-link.patch
 URL:		https://www.openfabrics.org/
 BuildRequires:	autoconf >= 2.57
@@ -15,7 +15,7 @@ BuildRequires:	glib2-devel >= 1:2.2
 BuildRequires:	libibumad-devel >= 1.3.10
 BuildRequires:	libibverbs-devel >= 1.1.8
 BuildRequires:	librdmacm-devel >= 1.0.19
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	opensm-devel >= 3.3.19
 BuildRequires:	pkgconfig
 Requires:	glib2 >= 1:2.2
@@ -42,6 +42,7 @@ Biblioteka wtyczki SSA (libopensmssa) dla OpenSM.
 %{__autoheader}
 %{__automake}
 %configure \
+	GSTACK=/usr/bin/gstack \
 	--disable-silent-rules \
 	--disable-static
 %{__make}
@@ -66,3 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libopensmssa.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libopensmssa.so.1
 %attr(755,root,root) %{_libdir}/libopensmssa.so
+%{_mandir}/man7/opensmssa.7*
