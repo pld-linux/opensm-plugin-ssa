@@ -1,0 +1,11 @@
+--- libopensmssa-0.0.9/include/common.h~	2015-08-13 14:52:31.000000000 +0200
++++ libopensmssa-0.0.9/include/common.h	2021-10-28 22:12:21.101976018 +0200
+@@ -357,7 +357,7 @@
+ 
+ uint64_t ssa_epoch_inc(uint64_t epoch);
+ 
+-const char *month_str[12];
++extern const char *month_str[12];
+ void ssa_write_date(FILE *stream, time_t tim, unsigned int usec);
+ void ssa_format_addr(char *str, size_t str_size,
+ 		     enum ssa_addr_type addr_type, const uint8_t *addr, size_t addr_size);

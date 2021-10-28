@@ -2,12 +2,13 @@ Summary:	SSA plugin library (libopensmssa) for OpenSM
 Summary(pl.UTF-8):	Biblioteka wtyczki SSA (libopensmssa) dla OpenSM
 Name:		opensm-plugin-ssa
 Version:	0.0.9
-Release:	3
+Release:	4
 License:	BSD or GPL v2
 Group:		Libraries
 Source0:	https://www.openfabrics.org/downloads/management/ssa/libopensmssa-%{version}.tar.gz
 # Source0-md5:	316dd88c1330e9131d031b2e1f80b40e
 Patch0:		libopensmssa-link.patch
+Patch1:		gcc10.patch
 URL:		https://www.openfabrics.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -34,6 +35,7 @@ Biblioteka wtyczki SSA (libopensmssa) dla OpenSM.
 %prep
 %setup -q -n libopensmssa-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
